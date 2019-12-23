@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>下载</title>
+  <link rel="stylesheet" href="../css/app.css">
+  <script type="text/javascript" charset="UTF-8" src="https://res.cdn.openinstall.io/openinstall.js"></script>
+</head>
+
+<body>
+  <div class="content_user">
+    <div id="downloadButton"></div>
+  </div>
+</body>
+<script type="text/javascript">
+  var data = OpenInstall.parseUrlParams();
+  console.log(data)
+  new OpenInstall({
+    appKey: 'ynjij8',
+    mask: function () {
+      return "<div id='openinstall_shadow' style='position:fixed;left:0;top:0;background:rgba(0,0,0,0.5);filter:alpha(opacity=50);width:100%;height:100%;z-index:10000;'><div class='tips_inf0'>请在浏览器中打开,右上角选择在浏览器打开。</div></div>"
+    },
+    onready: function () {
+      var m = this, button = document.getElementById('downloadButton');
+      m.schemeWakeup();
+      button.onclick = function () {
+        m.wakeupOrInstall();
+        return false;
+      }
+    }
+  },data);
+</script>
+
+</html>
